@@ -11,6 +11,9 @@ namespace HotelManagementSystem.Business.Abstracts
     {
         AdminViewModel Get(int id);
         List<AdminViewModel> GetAll();
+        bool Create(AdminViewModel viewModel);
+        bool Update(int id, AdminViewModel viewModel);
+        bool Delete(int id);
         bool Login(string username, string password);
     }
 }

@@ -25,5 +25,46 @@ namespace HotelManagementSystem.Api.Controllers
         {
             return _customerService.GetAll();
         }
+        [HttpPost]
+        public IActionResult Create(CustomerViewModel viewModel)
+        {
+            if (_customerService.Create(viewModel))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpPut]
+        public IActionResult Update(int id, CustomerViewModel viewModel)
+        {
+            if(_customerService.Update(id, viewModel))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (_customerService.Delete(id))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpGet]
+        public bool HasReservation(int customerId)
+        {
+            return _customerService.HasReservation(customerId);
+        }
+        [HttpPut]
+        public IActionResult MakeReservation(int customerId, int roomId)
+        {
+            if (_customerService.MakeReservation(customerId, roomId))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

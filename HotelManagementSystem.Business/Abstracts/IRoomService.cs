@@ -11,5 +11,10 @@ namespace HotelManagementSystem.Business.Abstracts
     {
         RoomViewModel Get(int id);
         List<RoomViewModel> GetAll();
+        bool Create(RoomViewModel viewModel);
+        bool Update(int id, RoomViewModel viewModel);
+        bool Delete(int id);
+        bool CheckIn(int roomId);
+        bool CheckOut(int roomId);
     }
 }

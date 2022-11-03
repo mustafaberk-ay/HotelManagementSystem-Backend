@@ -18,7 +18,7 @@ namespace HotelManagementSystem.Business.Services
         }
         public AdminViewModel Get(int id)
         {
-            var admin = _context.Admins.FirstOrDefault<Admin>();
+            var admin = _context.Admins.SingleOrDefault(x => x.Id == id);
             var adminViewModel = new AdminViewModel()
             {
                 Id = admin.Id,
